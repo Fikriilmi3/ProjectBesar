@@ -131,15 +131,17 @@
                 android:backgroundTint="@color/biru"
                 app:cornerRadius="20dp"
                 android:layout_marginTop="20dp"/>
-            <Button
+            <TextView
+                android:id="@+id/tvlogin"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:id="@+id/btn_login"
-                android:text="Already have account? Login"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:clickable="true"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
                 android:textColor="@color/biru"
-                android:background="@android:color/transparent"
-                android:textAllCaps="false"
-                android:layout_marginTop="5dp"/>
+                android:fontFamily="@font/nunito_bold"
+                android:text="Sudah punya aku? Login disini"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
