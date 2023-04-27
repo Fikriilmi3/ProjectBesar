@@ -12,11 +12,17 @@
         android:theme="@style/Theme.ProjectBesar"
         tools:targetApi="31">
         <activity
+            android:name=".MentalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PerkembanganActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Splashscreen"
             android:exported="true"
