@@ -12,10 +12,28 @@
         android:theme="@style/Theme.ProjectBesar"
         tools:targetApi="31">
         <activity
-            android:name=".MentalActivity"
+            android:name=".mental.GPPHActivity"
             android:exported="false" />
         <activity
-            android:name=".PerkembanganActivity"
+            android:name=".mental.CHATActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mental.KMMEActivity"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.TDLActivity"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.TDDActivity"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.KPSPActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mental.MentalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.PerkembanganActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"

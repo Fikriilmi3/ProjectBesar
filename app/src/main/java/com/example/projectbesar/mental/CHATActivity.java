@@ -1,14 +1,16 @@
-package com.example.projectbesar;
+package com.example.projectbesar.mental;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MentalActivity extends AppCompatActivity {
+import com.example.projectbesar.R;
+
+public class CHATActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mental);
+        setContentView(R.layout.activity_chat);
     }
 }

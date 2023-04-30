@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".perkembangan.TDDActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/toolbar"
+        android:background="@drawable/round_btn"
+        app:logo="@drawable/baseline_arrow_back_24"
+        app:title="TDD"
+        app:titleMarginStart="25dp"
+        app:titleTextColor="@color/white"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:cardBackgroundColor="@color/birumuda"
+                app:cardCornerRadius="15dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/gbr"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:maxHeight="200dp"
+                        android:layout_marginLeft="-10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/profile" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="15dp"
+                        android:text="TDD"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nunito_black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Untuk anak umur 12-24 bulan"
+                        android:layout_below="@+id/title"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginLeft="100dp"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"/>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:cardBackgroundColor="@color/birumuda"
+                app:cardCornerRadius="15dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/gbr2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:maxHeight="200dp"
+                        android:layout_marginLeft="-10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/profile" />
+
+                    <TextView
+                        android:id="@+id/title2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="100dp"
+                        android:layout_marginTop="15dp"
+                        android:text="TDD"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/nunito_black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Untuk anak umur 2-3 tahun"
+                        android:layout_below="@+id/title2"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginLeft="100dp"
+                        android:textSize="16dp"
+                        android:textColor="@color/black"/>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

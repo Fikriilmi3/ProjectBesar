@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:background="@drawable/round_btn"
-    tools:context=".MentalActivity">
+    tools:context=".mental.MentalActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"

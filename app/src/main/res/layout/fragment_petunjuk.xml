@@ -7,12 +7,43 @@
     tools:context=".PetunjukFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Petunjuk"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/white"/>/>
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/sliderImage"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/upload"/>
+
+        <TextView
+            android:id="@+id/sliderTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/screen1"
+            android:textAlignment="center"
+            android:textColor="@color/biru"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/sliderDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:text="@string/screen1desc"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/biru"
+            android:textSize="20sp"/>
+    </LinearLayout>
 
 </FrameLayout>

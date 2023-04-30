@@ -1,14 +1,16 @@
-package com.example.projectbesar;
+package com.example.projectbesar.perkembangan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PerkembanganActivity extends AppCompatActivity {
+import com.example.projectbesar.R;
+
+public class TDLActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perkembangan);
+        setContentView(R.layout.activity_tdl);
     }
 }
