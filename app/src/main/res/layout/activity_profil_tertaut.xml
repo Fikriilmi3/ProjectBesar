@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ProfilTertautActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/toolbar"
+        android:background="@drawable/round_btn"
+        app:logo="@drawable/baseline_arrow_back_24"
+        app:title="Profil Tertaut"
+        app:titleMarginStart="25dp"
+        app:titleTextColor="@color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile :"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="22dp"
+        android:textColor="@color/black"/>
+
+    <RelativeLayout
+        android:id="@+id/group_userprimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp">
+
+        <ImageView
+            android:id="@+id/profile"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/outline_account_circle_24"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/txtpnameprofile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BALITAPP"
+            android:layout_toRightOf="@id/profile"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="27dp"
+            android:textSize="20dp"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/txtuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtpnameprofile"
+            android:text="Akun Anda"
+            android:layout_toRightOf="@id/profile"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="2dp"
+            android:textSize="16dp"
+            android:fontFamily="@font/nunito_regular"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@+id/profile"
+            android:layout_marginTop="7dp"
+            android:background="@color/biru"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/group_userrelasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/user1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/baseline_person_pin_24"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/txtpnameuser1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anak Satu"
+                android:layout_toRightOf="@id/user1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="27dp"
+                android:textSize="20dp"
+                android:fontFamily="@font/nunito_bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/txtuser1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtpnameuser1"
+                android:text="Anak Kandung"
+                android:layout_toRightOf="@id/user1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:textSize="16dp"
+                android:fontFamily="@font/nunito_regular"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="33dp"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@id/user1"
+                android:src="@drawable/baseline_arrow_forward_ios_24"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/user1"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/black"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="310dp">
+
+        <Button
+            android:id="@+id/btn_tbhanggota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Tambah Anggota"
+            android:backgroundTint="@color/biru"
+            app:cornerRadius="20dp"
+            android:layout_marginTop="20dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

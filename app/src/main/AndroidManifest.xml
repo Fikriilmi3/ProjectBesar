@@ -12,6 +12,21 @@
         android:theme="@style/Theme.ProjectBesar"
         tools:targetApi="31">
         <activity
+            android:name=".ProfilAnakActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TambahAnggotaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfilTertautActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TentangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UbahAkunActivity"
+            android:exported="false" />
+        <activity
             android:name=".mental.GPPHActivity"
             android:exported="false" />
         <activity

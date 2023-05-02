@@ -71,6 +71,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/div1"
         android:background="@drawable/boxcornertop"
+        android:backgroundTint="@color/white"
         android:gravity="center_vertical"
         android:paddingHorizontal="10dp">
 
