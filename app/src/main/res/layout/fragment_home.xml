@@ -14,143 +14,312 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <RelativeLayout
+                android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="400dp">
-
+                android:layout_height="wrap_content">
                 <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/imageView2"
-                    app:layout_constraintTop_toTopOf="@+id/imageView2"
-                    android:src="@drawable/top_background_gradient" />
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/top_background"/>
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
-                    android:src="@drawable/profile"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView"
-                    app:layout_constraintVertical_bias="0.42" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:text="Hi,"
-                    android:textSize="18sp"
-                    android:textColor="#ffff"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView3"/>
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="BalitApp"
-                    android:textColor="#ffff"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/imageView3"
-                    app:layout_constraintStart_toStartOf="@id/textView"
-                    app:layout_constraintTop_toBottomOf="@id/textView"
-                    app:layout_constraintVertical_bias="0.256" />
-
-                <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/top_background_gradient"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:src="@drawable/top_background"/>
+                <TextView
+                    android:id="@+id/hi"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="55dp"
+                    android:text="Hi,"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/nunito_black"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:id="@+id/nameuser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@+id/hi"
+                    android:text="BalitApp"
+                    android:textSize="25dp"
+                    android:fontFamily="@font/nunito_black"
+                    android:textColor="@color/white"/>
+                <ImageView
+                    android:id="@+id/profiluser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="300dp"
+                    android:layout_marginTop="38dp"
+                    android:layout_marginEnd="25dp"
+                    android:src="@drawable/profile" />
+
+                <RelativeLayout
+                    android:id="@+id/basemenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/profiluser"
+                    android:background="@drawable/white_top_buttons"
+                    android:gravity="center_vertical"
                     android:layout_marginStart="70dp"
                     android:layout_marginEnd="70dp"
-                    android:background="@drawable/white_top_buttons"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView">
-
-                    <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:paddingHorizontal="10dp">
+                    <GridLayout
+                        android:id="@+id/gridlayout"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/biru_top_buttons"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:columnCount="2"
+                        android:rowCount="1">
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/perkembangan"
+                            android:layout_width="90dp"
+                            android:layout_height="100dp"
+                            android:layout_row="0"
+                            android:layout_rowWeight="1"
+                            android:layout_column="0"
+                            android:layout_columnWeight="1"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:backgroundTint="@color/birumuda"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="12dp">
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_horizontal">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="5dp"
+                                    android:src="@drawable/video_call" />
+                                <TextView
+                                    android:id="@+id/txt_perkembangan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="Perkembangan"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
 
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:src="@drawable/video_call" />
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/mental"
+                            android:layout_width="90dp"
+                            android:layout_height="100dp"
+                            android:layout_row="0"
+                            android:layout_rowWeight="1"
+                            android:layout_column="1"
+                            android:layout_columnWeight="1"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_marginBottom="5dp"
+                            android:backgroundTint="@color/birumuda"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="12dp">
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:orientation="vertical"
+                                android:layout_gravity="center_horizontal">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:src="@drawable/video_call" />
+                                <TextView
+                                    android:id="@+id/txt_mental"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="1dp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="Mental Emosional"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </GridLayout>
+                </RelativeLayout>
+            </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/textView4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:text="Perkembangan"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kategori Soal"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="22dp"
+                android:textColor="@color/black"/>
 
-                    <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="22dp"
+                android:paddingEnd="22dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_kpsp"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_kategorisoal"
+                    android:drawableStart="@drawable/voice_call"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="KPSP"
+                    android:textColor="#0059ff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_kmme"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_kategorisoal"
+                    android:drawableStart="@drawable/voice_call"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="KMME"
+                    android:textColor="#0059ff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="22dp"
+                android:paddingEnd="22dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_tdd"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_kategorisoal"
+                    android:drawableStart="@drawable/voice_call"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="TDD"
+                    android:textColor="#0059ff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_chat"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_kategorisoal"
+                    android:drawableStart="@drawable/voice_call"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="CHAT"
+                    android:textColor="#0059ff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="22dp"
+                android:paddingEnd="22dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_tdl"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_kategorisoal"
+                    android:drawableStart="@drawable/voice_call"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="TDL"
+                    android:textColor="#0059ff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_gpph"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/btn_kategorisoal"
+                    android:drawableStart="@drawable/voice_call"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="GPPH"
+                    android:textColor="#0059ff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:backgroundTint="@color/birumuda"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="22dp"
+                    android:layout_marginEnd="22dp"
+                    app:cardElevation="20dp"
+                    app:cardCornerRadius="20dp">
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/imageSlider"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/biru_top_buttons"
-                        android:orientation="vertical">
+                        android:layout_height="200dp"
+                        app:iss_period="1000"
+                        app:iss_auto_cycle="true"
+                        app:iss_delay="1000"
+                        app:iss_corner_radius="20"
+                        app:iss_title_background="@drawable/gradient"/>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
 
-                        <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:src="@drawable/video_call" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"/>
 
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:layout_weight="2"
-                            android:text="Mental Emosional"
-                            android:textAlignment="center"
-                            android:textColor="@color/white"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@color/white"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

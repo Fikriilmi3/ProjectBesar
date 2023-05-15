@@ -148,6 +148,7 @@
                 android:textColor="@color/black"/>
 
             <ImageView
+                android:id="@+id/profiltertaut"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="115dp"
@@ -187,6 +188,7 @@
                 android:textColor="@color/black"/>
 
             <ImageView
+                android:id="@+id/tentang"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="164dp"

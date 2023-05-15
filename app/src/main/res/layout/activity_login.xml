@@ -8,6 +8,7 @@
     android:gravity="center"
     android:background="@drawable/round_btn"
     tools:context=".LoginActivity">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,22 +26,24 @@
             android:layout_gravity="center_horizontal"
             android:padding="24dp">
             <TextView
+                android:id="@+id/loginText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/loginText"
                 android:text="LOGIN"
                 android:fontFamily="@font/nunito_extra_bold"
-                android:textSize="25sp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:textColor="@color/biru"/>
+                android:textColor="@color/black"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:id="@+id/et_Username"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/et_Username"
                     android:background="@drawable/custom_edittext"
                     android:drawableLeft="@drawable/ic_person_black_24dp"
                     android:drawablePadding="8dp"
@@ -52,14 +55,16 @@
                     android:textColorHighlight="@color/cardview_dark_background"
                     android:layout_marginTop="15dp"/>
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true">
+
                 <EditText
+                    android:id="@+id/et_Pass"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/et_Pass"
                     android:background="@drawable/custom_edittext"
                     android:drawableLeft="@drawable/ic_lock_black_24dp"
                     android:drawablePadding="8dp"
@@ -71,25 +76,47 @@
                     android:textColorHighlight="@color/cardview_dark_background"
                     android:layout_marginTop="15dp"/>
             </com.google.android.material.textfield.TextInputLayout>
+
             <Button
+                android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_login"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="1dp"
                 android:text="LOGIN"
+                android:textColor="@color/white"
                 android:backgroundTint="@color/biru"
                 app:cornerRadius="20dp"
                 android:layout_marginTop="30dp"/>
-            <TextView
-                android:id="@+id/tvreg"
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:clickable="true"
-                android:layout_marginTop="8dp"
-                android:textAlignment="center"
-                android:textColor="@color/biru"
-                android:fontFamily="@font/nunito_bold"
-                android:text="Belum punya aku? Daftar disini"/>
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/tvreg1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:textSize="16dp"
+                    android:clickable="true"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="Belum punya akun?"/>
+                <TextView
+                    android:id="@+id/tvreg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daftar disini"
+                    android:layout_toRightOf="@+id/tvreg1"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="7dp"
+                    android:textSize="16dp"
+                    android:clickable="true"
+                    android:textColor="@color/biru"
+                    android:fontFamily="@font/nunito_bold" />
+            </RelativeLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
