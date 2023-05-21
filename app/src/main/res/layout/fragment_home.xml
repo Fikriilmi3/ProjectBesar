@@ -47,14 +47,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_below="@+id/hi"
                     android:text="BalitApp"
-                    android:textSize="25dp"
+                    android:textSize="20dp"
                     android:fontFamily="@font/nunito_black"
                     android:textColor="@color/white"/>
                 <ImageView
                     android:id="@+id/profiluser"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="300dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentRight="true"
                     android:layout_marginTop="38dp"
                     android:layout_marginEnd="25dp"
                     android:src="@drawable/profile" />
@@ -68,7 +68,7 @@
                     android:gravity="center_vertical"
                     android:layout_marginStart="70dp"
                     android:layout_marginEnd="70dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="40dp"
                     android:paddingHorizontal="10dp">
                     <GridLayout
                         android:id="@+id/gridlayout"
@@ -112,6 +112,7 @@
                                     android:layout_marginBottom="5dp"
                                     android:layout_gravity="center_horizontal"
                                     android:text="Perkembangan"
+                                    android:fontFamily="@font/nunito_regular"
                                     android:textAlignment="center"
                                     android:textColor="@color/black" />
                             </LinearLayout>
@@ -153,6 +154,7 @@
                                     android:layout_marginBottom="1dp"
                                     android:layout_gravity="center_horizontal"
                                     android:text="Mental Emosional"
+                                    android:fontFamily="@font/nunito_regular"
                                     android:textAlignment="center"
                                     android:textColor="@color/black" />
                             </LinearLayout>
@@ -166,7 +168,7 @@
                 android:layout_height="wrap_content"
                 android:text="Kategori Soal"
                 android:gravity="center"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:fontFamily="@font/poppins_semibold"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="22dp"
@@ -177,7 +179,7 @@
                 android:layout_height="match_parent"
                 android:paddingStart="22dp"
                 android:paddingEnd="22dp"
-                android:paddingTop="5dp"
+                android:paddingTop="8dp"
                 android:paddingBottom="5dp"
                 android:orientation="horizontal">
                 <androidx.appcompat.widget.AppCompatButton
@@ -192,6 +194,7 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="KPSP"
+                    android:fontFamily="@font/nunito_bold"
                     android:textColor="#0059ff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -207,6 +210,7 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="KMME"
+                    android:fontFamily="@font/nunito_bold"
                     android:textColor="#0059ff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -232,6 +236,7 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="TDD"
+                    android:fontFamily="@font/nunito_bold"
                     android:textColor="#0059ff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -247,6 +252,7 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="CHAT"
+                    android:fontFamily="@font/nunito_bold"
                     android:textColor="#0059ff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -272,6 +278,7 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="TDL"
+                    android:fontFamily="@font/nunito_bold"
                     android:textColor="#0059ff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -287,6 +294,7 @@
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="GPPH"
+                    android:fontFamily="@font/nunito_bold"
                     android:textColor="#0059ff"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -297,8 +305,7 @@
                 android:layout_height="match_parent">
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:backgroundTint="@color/birumuda"
+                    android:layout_height="180dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="22dp"
                     android:layout_marginEnd="22dp"
@@ -307,7 +314,7 @@
                     <com.denzcoskun.imageslider.ImageSlider
                         android:id="@+id/imageSlider"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="180dp"
                         app:iss_period="1000"
                         app:iss_auto_cycle="true"
                         app:iss_delay="1000"
@@ -315,11 +322,9 @@
                         app:iss_title_background="@drawable/gradient"/>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"/>
-
+                android:layout_height="90dp"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

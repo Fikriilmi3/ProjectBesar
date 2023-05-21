@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/white"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".ProfilAnakActivity">
+    tools:context=".cancel.ProfilAnakActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginLeft="12dp"
-            android:text="KPSP"
+            android:text="Profil Anak"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -40,17 +41,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp">
+            android:layout_marginStart="22dp"
+            android:layout_marginEnd="22dp">
 
             <TextView
                 android:id="@+id/namalengkap"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nama Lengkap"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:layout_marginTop="30dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -60,7 +61,8 @@
                 android:background="@drawable/custom_edittext"
                 android:hint="Masukkan Nama Lengkap"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunito_regular"
                 android:padding="12dp"
                 android:textColor="@color/black"
                 android:ems="10"
@@ -71,10 +73,10 @@
                 android:id="@+id/jk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jenis kelamin"
-                android:textSize="18dp"
+                android:text="Jenis Kelamin"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -84,7 +86,8 @@
                 android:background="@drawable/custom_edittext"
                 android:hint="Masukkan Jenis Kelamin"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunito_regular"
                 android:padding="12dp"
                 android:textColor="@color/black"
                 android:ems="10"
@@ -96,9 +99,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tempat Lahir"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -108,7 +111,8 @@
                 android:background="@drawable/custom_edittext"
                 android:hint="Masukkan Tempat Lahir"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunito_regular"
                 android:padding="12dp"
                 android:textColor="@color/black"
                 android:ems="10"
@@ -120,9 +124,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tanggal Lahir"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
 
@@ -134,7 +138,8 @@
                 android:background="@drawable/custom_edittext"
                 android:hint="Masukkan Tanggal lahir"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunito_regular"
                 android:padding="12dp"
                 android:textColor="@color/black"
                 android:ems="10"
@@ -145,8 +150,7 @@
                 android:id="@+id/btnDate"
                 android:layout_width="wrap_content"
                 android:layout_height="58dp"
-                android:layout_marginLeft="320dp"
-                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
                 android:layout_marginTop="-56dp"
                 android:src="@drawable/baseline_calendar_month_24" />
 
@@ -155,9 +159,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Relasi"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -167,7 +171,8 @@
                 android:background="@drawable/custom_edittext"
                 android:hint="Relasi"
                 android:maxLines="1"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/nunito_regular"
                 android:padding="12dp"
                 android:textColor="@color/black"
                 android:ems="10"
@@ -179,6 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Simpan"
+                android:textColor="@color/white"
                 android:backgroundTint="@color/biru"
                 app:cornerRadius="20dp"
                 android:layout_marginTop="20dp"/>
@@ -189,6 +195,7 @@
                 android:layout_height="wrap_content"
                 android:text="Hapus Anggota"
                 android:backgroundTint="@color/merah"
+                android:textColor="@color/white"
                 app:cornerRadius="20dp"
                 android:layout_marginTop="2dp"/>
 

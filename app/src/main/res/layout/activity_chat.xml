@@ -72,7 +72,7 @@
                         android:layout_marginLeft="100dp"
                         android:layout_marginTop="15dp"
                         android:text="Alo anamnesis"
-                        android:textSize="20dp"
+                        android:textSize="18sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/nunito_black"/>
 
@@ -80,10 +80,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Untuk anak umur 12-24 bulan"
+                        android:fontFamily="@font/nunito_regular"
                         android:layout_below="@+id/title"
                         android:layout_marginTop="3dp"
                         android:layout_marginLeft="100dp"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColor="@color/black"/>
 
                 </RelativeLayout>
@@ -120,7 +121,7 @@
                         android:layout_marginLeft="100dp"
                         android:layout_marginTop="15dp"
                         android:text="Pengamatan"
-                        android:textSize="20dp"
+                        android:textSize="18sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/nunito_black"/>
 
@@ -128,10 +129,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Untuk anak umur 2-3 tahun"
+                        android:fontFamily="@font/nunito_regular"
                         android:layout_below="@+id/title2"
                         android:layout_marginTop="3dp"
                         android:layout_marginLeft="100dp"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
                         android:textColor="@color/black"/>
 
                 </RelativeLayout>

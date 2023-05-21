@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".TambahAnggotaActivity">
+    tools:context=".cancel.TambahAnggotaActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -48,9 +48,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nama Lengkap"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:layout_marginTop="30dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -71,10 +71,10 @@
                 android:id="@+id/jk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Jenis kelamin"
-                android:textSize="18dp"
+                android:text="Jenis Kelamin"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -96,9 +96,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tempat Lahir"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -120,9 +120,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tanggal Lahir"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
 
@@ -155,9 +155,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Relasi"
-                android:textSize="18dp"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/nunito_black"
+                android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/black"/>
 
             <EditText
@@ -179,6 +179,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Simpan"
+                android:textColor="@color/white"
                 android:backgroundTint="@color/biru"
                 app:cornerRadius="20dp"
                 android:layout_marginTop="25dp"/>

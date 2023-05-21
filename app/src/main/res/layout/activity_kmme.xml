@@ -72,18 +72,19 @@
                         android:layout_marginLeft="100dp"
                         android:layout_marginTop="15dp"
                         android:text="KMME"
-                        android:textSize="20dp"
+                        android:textSize="18sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/nunito_black"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Untuk anak umur 236-72 bulan"
+                        android:text="Untuk anak umur 36-72 bulan"
                         android:layout_below="@+id/title"
                         android:layout_marginTop="3dp"
                         android:layout_marginLeft="100dp"
-                        android:textSize="16dp"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/nunito_regular"
                         android:textColor="@color/black"/>
 
                 </RelativeLayout>

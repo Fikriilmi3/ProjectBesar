@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".ProfilTertautActivity">
+    tools:context=".cancel.ProfilTertautActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -29,7 +29,6 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
-
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
@@ -47,13 +46,13 @@
         android:id="@+id/group_userprimer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp">
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp">
 
         <ImageView
             android:id="@+id/profile"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/outline_account_circle_24"
             android:layout_marginTop="20dp" />
 
@@ -61,11 +60,11 @@
             android:id="@+id/txtpnameprofile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BALITAPP"
+            android:text="BalitApp"
             android:layout_toRightOf="@id/profile"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="27dp"
-            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
             android:fontFamily="@font/nunito_bold"
             android:textColor="@color/black"/>
 
@@ -78,7 +77,7 @@
             android:layout_toRightOf="@id/profile"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="2dp"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:fontFamily="@font/nunito_regular"
             android:textColor="@color/black"/>
 
@@ -94,85 +93,91 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/group_userrelasi"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp"
-            android:layout_marginTop="8dp">
-
-            <ImageView
-                android:id="@+id/user1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/baseline_person_pin_24"
-                android:layout_marginTop="20dp" />
-
-            <TextView
-                android:id="@+id/txtpnameuser1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Anak Satu"
-                android:layout_toRightOf="@id/user1"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="27dp"
-                android:textSize="20dp"
-                android:fontFamily="@font/nunito_bold"
-                android:textColor="@color/black"/>
-
-            <TextView
-                android:id="@+id/txtuser1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtpnameuser1"
-                android:text="Anak Kandung"
-                android:layout_toRightOf="@id/user1"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="2dp"
-                android:textSize="16dp"
-                android:fontFamily="@font/nunito_regular"
-                android:textColor="@color/black"/>
-
-            <ImageView
-                android:id="@+id/btn_profilanak"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="250dp"
-                android:layout_marginTop="33dp"
-                android:layout_alignParentRight="true"
-                android:layout_toRightOf="@id/user1"
-                android:src="@drawable/baseline_arrow_forward_ios_24"
-                android:textColor="@color/black" />
-
-            <LinearLayout
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/group_userrelasi"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_below="@+id/user1"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginTop="7dp"
-                android:background="@color/black"/>
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="8dp">
 
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/user1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/baseline_person_pin_24"
+                    android:layout_marginTop="20dp" />
+
+                <TextView
+                    android:id="@+id/txtpnameuser1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anak Satu"
+                    android:layout_toRightOf="@id/user1"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtuser1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtpnameuser1"
+                    android:text="Anak Kandung"
+                    android:layout_toRightOf="@id/user1"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="1dp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:id="@+id/btn_profilanak"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/baseline_arrow_forward_ios_24"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/user1"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@color/black"/>
+
+            </RelativeLayout>
+        </LinearLayout>
     </ScrollView>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
-        android:layout_marginTop="310dp">
+        android:layout_marginBottom="10dp">
 
         <Button
             android:id="@+id/btn_tambahanggota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="Tambah Anggota"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/biru"
-            app:cornerRadius="20dp"
-            android:layout_marginTop="20dp"/>
+            android:text="Tambah Anggota"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp" />
     </RelativeLayout>
 
 </LinearLayout>

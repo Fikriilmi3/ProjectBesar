@@ -1,4 +1,4 @@
-package com.example.projectbesar;
+package com.example.projectbesar.cancel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.projectbesar.perkembangan.KPSPActivity;
-import com.example.projectbesar.perkembangan.PerkembanganActivity;
+import com.example.projectbesar.R;
 
 public class TambahAnggotaActivity extends AppCompatActivity {
 

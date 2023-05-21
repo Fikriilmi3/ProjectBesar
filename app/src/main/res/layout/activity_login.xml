@@ -41,13 +41,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:id="@+id/et_Username"
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/custom_edittext"
                     android:drawableLeft="@drawable/ic_person_black_24dp"
                     android:drawablePadding="8dp"
                     android:hint="Username"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_regular"
                     android:inputType="text"
                     android:maxLines="1"
                     android:padding="8dp"
@@ -62,13 +64,15 @@
                 app:passwordToggleEnabled="true">
 
                 <EditText
-                    android:id="@+id/et_Pass"
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/custom_edittext"
                     android:drawableLeft="@drawable/ic_lock_black_24dp"
                     android:drawablePadding="8dp"
                     android:hint="Password"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/nunito_regular"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:inputType="textPassword"
@@ -90,14 +94,14 @@
                 android:layout_marginTop="30dp"/>
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
                 <TextView
                     android:id="@+id/tvreg1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:textSize="16dp"
+                    android:textSize="15sp"
                     android:clickable="true"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/black"
@@ -111,7 +115,7 @@
                     android:layout_toRightOf="@+id/tvreg1"
                     android:layout_marginTop="8dp"
                     android:layout_marginLeft="7dp"
-                    android:textSize="16dp"
+                    android:textSize="15sp"
                     android:clickable="true"
                     android:textColor="@color/biru"
                     android:fontFamily="@font/nunito_bold" />
