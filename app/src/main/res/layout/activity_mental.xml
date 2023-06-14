@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="23dp"
+            android:layout_marginStart="22dp"
             android:layout_marginLeft="12dp"
             android:text="Mental Emosional"
             android:textColor="@color/white"
@@ -126,7 +126,7 @@
                         android:src="@drawable/kmme" />
 
                     <TextView
-                        android:id="@+id/kmme"
+                        android:id="@+id/kpsp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="12dp"

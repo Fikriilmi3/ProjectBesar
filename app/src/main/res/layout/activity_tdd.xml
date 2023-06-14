@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".perkembangan.TDDActivity">
+    tools:context=".perkembangan.tdd.TDDActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -41,7 +41,7 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tdd24bulan"
+                android:id="@+id/tdd1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/birumuda"
@@ -92,7 +92,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tdd2_3tahun"
+                android:id="@+id/tdd2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/birumuda"
@@ -144,7 +144,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tdd3tahun"
+                android:id="@+id/tdd3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/birumuda"
@@ -191,6 +191,7 @@
                         android:textSize="14dp"
                         android:fontFamily="@font/nunito_regular"
                         android:textColor="@color/black"/>
+
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>

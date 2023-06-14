@@ -15,7 +15,7 @@
         android:fontFamily="@font/poppins_semibold"
         android:text="Welcom to BalitApp"
         android:textAlignment="center"
-        android:textColor="@color/biru"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -27,16 +27,26 @@
         android:scaleType="centerCrop"
         android:src="@drawable/balitapp"/>
 
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="50dp"-->
+<!--        android:fontFamily="@font/poppins_semibold"-->
+<!--        android:text="Explore YouTube"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/biru"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold" />-->
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/nunito_regular"
         android:text="@string/getstarted"
         android:textAlignment="center"
-        android:textColor="@color/biru"
+        android:textColor="@color/black"
         android:textSize="15sp" />
 
     <Button
@@ -48,8 +58,8 @@
         android:fontFamily="@font/poppins_semibold"
         android:textSize="16sp"
         android:textColor="@color/white"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"
-        app:cornerRadius = "12dp"/>
+        app:cornerRadius = "20dp"/>
 
 </LinearLayout>

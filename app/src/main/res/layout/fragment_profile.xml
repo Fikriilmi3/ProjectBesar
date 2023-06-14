@@ -37,85 +37,81 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#EBF3FE">
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/user" />
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/user" />
 
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="110dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Levi"
-                    android:textSize="20dp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/nunito_black"/>
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nunito_black"/>
 
-                <ImageView
-                    android:id="@+id/tgllahir"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/calendar"
-                    android:layout_below="@+id/username"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginLeft="110dp"
-                    android:textSize="16dp"
-                    android:textColor="@color/black"/>
+            <ImageView
+                android:id="@+id/tgllahir"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/calendar"
+                android:layout_below="@+id/username"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="110dp"
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
-                <TextView
-                    android:id="@+id/tgl_lahir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2019-06-12"
-                    android:fontFamily="@font/nunito_regular"
-                    android:layout_below="@+id/username"
-                    android:layout_toRightOf="@id/tgllahir"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="3dp"
-                    android:textSize="13dp"
-                    android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tgl_lahir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_regular"
+                android:layout_below="@+id/username"
+                android:layout_toRightOf="@id/tgllahir"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="3dp"
+                android:textSize="13dp"
+                android:textColor="@color/black"/>
 
-                <ImageView
-                    android:id="@+id/ibu"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ibu"
-                    android:layout_below="@+id/tgllahir"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="25dp"
-                    android:layout_marginLeft="110dp"
-                    android:textSize="16dp"
-                    android:textColor="@color/black"/>
+            <ImageView
+                android:id="@+id/ibu"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ibu"
+                android:layout_below="@+id/tgllahir"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginLeft="110dp"
+                android:textSize="16dp"
+                android:textColor="@color/black"/>
 
-                <TextView
-                    android:id="@+id/nama_ibu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Riana"
-                    android:fontFamily="@font/nunito_regular"
-                    android:layout_below="@+id/tgl_lahir"
-                    android:layout_toRightOf="@id/ibu"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
-                    android:textSize="13sp"
-                    android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/nama_ibu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_regular"
+                android:layout_below="@+id/tgl_lahir"
+                android:layout_toRightOf="@id/ibu"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:textSize="13sp"
+                android:textColor="@color/black"/>
 
-                <ImageView
-                    android:id="@+id/edit"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="18dp"
-                    android:src="@drawable/baseline_edit_note_24"
-                    android:textColor="@color/black" />
-            </RelativeLayout>
+            <ImageView
+                android:id="@+id/edit"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/baseline_edit_note_24"
+                android:textColor="@color/black" />
+        </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -137,94 +133,179 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="8dp"
             android:backgroundTint="#EBF3FE">
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#EBF3FE">
-
-                <ImageView
-                    android:id="@+id/book"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/history"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"/>
-
-                <TextView
-                    android:id="@+id/txtedukasi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Edukasi"
-                    android:layout_toRightOf="@id/book"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="32dp"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/nunito_bold"
-                    android:textColor="@color/black"/>
-
-                <ImageView
-                    android:id="@+id/edukasi"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginRight="22dp"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:textColor="@color/black" />
+                android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/lytriwayat"
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_below="@+id/book"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginEnd="25dp"
-                    android:layout_marginTop="7dp"
-                    android:background="#05BAFF"/>
-
-                <ImageView
-                    android:id="@+id/info"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/info"
-                    android:layout_below="@+id/book"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"/>
-
-                <TextView
-                    android:id="@+id/txtinfo"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tentang"
-                    android:layout_below="@+id/book"
-                    android:layout_toRightOf="@id/info"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="27dp"
-                    android:textSize="15sp"
-                    android:fontFamily="@font/nunito_bold"
-                    android:textColor="@color/black"/>
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
-                <ImageView
-                    android:id="@+id/tentang"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="22dp"
-                    android:layout_marginTop="26dp"
-                    android:layout_below="@+id/book"
-                    android:src="@drawable/baseline_arrow_forward_ios_24"
-                    android:textColor="@color/black" />
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/history" />
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:text="Riwayat"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="#05BAFF"/>
 
                 <LinearLayout
+                    android:id="@+id/lyttentang"
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_below="@+id/info"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginBottom="35dp"
-                    android:layout_marginEnd="25dp"
-                    android:layout_marginTop="7dp"
-                    android:background="#05BAFF"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/info" />
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:fontFamily="@font/nunito_bold"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:text="Tentang"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:src="@drawable/baseline_arrow_forward_ios_24"/>
+
+                </LinearLayout>
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginBottom="30dp"-->
+<!--                android:background="@color/black"/>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/book"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/outline_book_24"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginLeft="20dp"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtedukasi"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Edukasi"-->
+<!--                android:layout_toRightOf="@id/book"-->
+<!--                android:layout_marginLeft="8dp"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:textSize="16sp"-->
+<!--                android:fontFamily="@font/nunito_bold"-->
+<!--                android:textColor="@color/black"/>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/edukasi"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:layout_marginRight="22dp"-->
+<!--                android:src="@drawable/baseline_arrow_forward_ios_24"-->
+<!--                android:textColor="@color/black" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="2dp"-->
+<!--                android:layout_below="@+id/book"-->
+<!--                android:layout_marginStart="25dp"-->
+<!--                android:layout_marginEnd="25dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:background="@color/black"/>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/info"-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/outline_info_24"-->
+<!--                android:layout_below="@+id/book"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginLeft="20dp"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/txtinfo"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Tentang"-->
+<!--                android:layout_below="@+id/book"-->
+<!--                android:layout_toRightOf="@id/info"-->
+<!--                android:layout_marginLeft="8dp"-->
+<!--                android:layout_marginTop="31dp"-->
+<!--                android:textSize="15sp"-->
+<!--                android:fontFamily="@font/nunito_bold"-->
+<!--                android:textColor="@color/black"/>-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/tentang"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_marginRight="22dp"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:layout_below="@+id/book"-->
+<!--                android:src="@drawable/baseline_arrow_forward_ios_24"-->
+<!--                android:textColor="@color/black" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="2dp"-->
+<!--                android:layout_below="@+id/info"-->
+<!--                android:layout_marginStart="25dp"-->
+<!--                android:layout_marginBottom="35dp"-->
+<!--                android:layout_marginEnd="25dp"-->
+<!--                android:layout_marginTop="7dp"-->
+<!--                android:background="@color/black"/>-->
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -246,35 +327,33 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="8dp"
             android:backgroundTint="#EBF3FE">
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/lytkeluar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/white">
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
                 <ImageView
-                    android:id="@+id/keluar"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/logout"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginLeft="20dp"/>
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/logout" />
 
                 <TextView
-                    android:id="@+id/txtkeluar"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:text="Keluar"
-                    android:layout_toRightOf="@id/keluar"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="21dp"
-                    android:textSize="15sp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:textColor="?attr/colorOnSecondary"
                     android:fontFamily="@font/nunito_bold"
-                    android:textColor="@color/black"/>
-
-            </RelativeLayout>
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:text="Keluar"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
-
 
     </LinearLayout>
 </FrameLayout>

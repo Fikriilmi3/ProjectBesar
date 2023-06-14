@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".mental.CHATActivity">
+    tools:context=".mental.chat.CHATActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -42,8 +42,9 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/chata"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/birumuda"
                 app:cardCornerRadius="15dp"
                 android:layout_marginStart="12dp"
@@ -58,20 +59,20 @@
 
                     <ImageView
                         android:id="@+id/gbr"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:maxHeight="200dp"
                         android:layout_marginLeft="-10dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/profile" />
+                        android:src="@drawable/chat1" />
 
                     <TextView
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
+                        android:layout_toRightOf="@+id/gbr"
                         android:layout_marginTop="15dp"
-                        android:text="Alo anamnesis"
+                        android:text="CHAT"
                         android:textSize="18sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/nunito_black"/>
@@ -79,18 +80,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Untuk anak umur 12-24 bulan"
-                        android:fontFamily="@font/nunito_regular"
+                        android:text="Untuk anak umur 18-36 bulan"
                         android:layout_below="@+id/title"
                         android:layout_marginTop="3dp"
-                        android:layout_marginLeft="100dp"
-                        android:textSize="16sp"
+                        android:layout_toRightOf="@id/gbr"
+                        android:textSize="14dp"
+                        android:fontFamily="@font/nunito_regular"
                         android:textColor="@color/black"/>
 
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/chatb"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 app:cardBackgroundColor="@color/birumuda"
@@ -98,7 +100,8 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="12dp"
+                android:visibility="gone">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -112,7 +115,7 @@
                         android:maxHeight="200dp"
                         android:layout_marginLeft="-10dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/profile" />
+                        android:src="@drawable/chat" />
 
                     <TextView
                         android:id="@+id/title2"
