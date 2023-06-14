@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.projectbesar.utils.Preferences;
+
 public class Splashscreen extends AppCompatActivity {
 
     public static int SPLASH_TIMER = 2000;
@@ -16,12 +18,20 @@ public class Splashscreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
+        String Id = Preferences.getKeyId(Splashscreen.this);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(Splashscreen.this, NavigationActivity.class);
-                startActivity(intent);
-                finish();
+                if (Id != null) {
+                    Intent intent = new Intent(Splashscreen.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Intent intent = new Intent(Splashscreen.this, NavigationActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }, SPLASH_TIMER);
     }

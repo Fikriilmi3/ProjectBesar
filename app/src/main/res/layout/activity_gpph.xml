@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@drawable/round_btn">
+        android:background="@color/biru">
 
         <ImageView
             android:id="@+id/backButton"
@@ -42,8 +42,9 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/gpph"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/birumuda"
                 app:cardCornerRadius="15dp"
                 android:layout_marginStart="12dp"
@@ -58,18 +59,18 @@
 
                     <ImageView
                         android:id="@+id/gbr"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:maxHeight="200dp"
                         android:layout_marginLeft="-10dp"
                         android:layout_centerVertical="true"
-                        android:src="@drawable/profile" />
+                        android:src="@drawable/gpph1" />
 
                     <TextView
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="100dp"
+                        android:layout_toRightOf="@id/gbr"
                         android:layout_marginTop="15dp"
                         android:text="GPPH"
                         android:textSize="18sp"
@@ -82,14 +83,12 @@
                         android:text="Untuk anak umur 36-72 bulan"
                         android:layout_below="@+id/title"
                         android:layout_marginTop="3dp"
-                        android:layout_marginLeft="100dp"
-                        android:textSize="16sp"
+                        android:layout_toRightOf="@id/gbr"
+                        android:textSize="14dp"
                         android:fontFamily="@font/nunito_regular"
                         android:textColor="@color/black"/>
-
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
-
 </RelativeLayout>

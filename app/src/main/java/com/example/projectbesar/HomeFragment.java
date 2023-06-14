@@ -38,12 +38,12 @@ public class HomeFragment extends Fragment {
 
         CardView perkembangan = view.findViewById(R.id.perkembangan);
         CardView mental = view.findViewById(R.id.mental);
-        AppCompatButton btn_kpsp = view.findViewById(R.id.btn_kpsp);
-        AppCompatButton btn_tdd = view.findViewById(R.id.btn_tdd);
-        AppCompatButton btn_tdl = view.findViewById(R.id.btn_tdl);
-        AppCompatButton btn_kmme = view.findViewById(R.id.btn_kmme);
-        AppCompatButton btn_chat = view.findViewById(R.id.btn_chat);
-        AppCompatButton btn_gpph = view.findViewById(R.id.btn_gpph);
+//        AppCompatButton btn_kpsp = view.findViewById(R.id.btn_kpsp);
+//        AppCompatButton btn_tdd = view.findViewById(R.id.btn_tdd);
+//        AppCompatButton btn_tdl = view.findViewById(R.id.btn_tdl);
+//        AppCompatButton btn_kmme = view.findViewById(R.id.btn_kmme);
+//        AppCompatButton btn_chat = view.findViewById(R.id.btn_chat);
+//        AppCompatButton btn_gpph = view.findViewById(R.id.btn_gpph);
         ImageSlider imageSlider = view.findViewById(R.id.imageSlider);
 
         perkembangan.setOnClickListener(new View.OnClickListener() {
@@ -64,65 +64,66 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        btn_kpsp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), KPSPActivity.class);
-                intent.putExtra("data", "Hello from MyFragment");
-                startActivity(intent);
-            }
-        });
+//        btn_kpsp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), KPSPActivity.class);
+//                intent.putExtra("data", "Hello from MyFragment");
+//                startActivity(intent);
+//            }
+//        });
 
-        btn_tdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), TDDActivity.class);
-                intent.putExtra("data", "Hello from MyFragment");
-                startActivity(intent);
-            }
-        });
+//        btn_tdd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), TDDActivity.class);
+//                intent.putExtra("data", "Hello from MyFragment");
+//                startActivity(intent);
+//            }
+//        });
 
-        btn_tdl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), TDLActivity.class);
-                intent.putExtra("data", "Hello from MyFragment");
-                startActivity(intent);
-            }
-        });
+//        btn_tdl.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), TDLActivity.class);
+//                intent.putExtra("data", "Hello from MyFragment");
+//                startActivity(intent);
+//            }
+//        });
 
-        btn_kmme.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), KMMEActivity.class);
-                intent.putExtra("data", "Hello from MyFragment");
-                startActivity(intent);
-            }
-        });
+//        btn_kmme.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), KMMEActivity.class);
+//                intent.putExtra("data", "Hello from MyFragment");
+//                startActivity(intent);
+//            }
+//        });
 
-        btn_chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), CHATActivity.class);
-                intent.putExtra("data", "Hello from MyFragment");
-                startActivity(intent);
-            }
-        });
+//        btn_chat.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), CHATActivity.class);
+//                intent.putExtra("data", "Hello from MyFragment");
+//                startActivity(intent);
+//            }
+//        });
 
-        btn_gpph.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), GPPHActivity.class);
-                intent.putExtra("data", "Hello from MyFragment");
-                startActivity(intent);
-            }
-        });
+//        btn_gpph.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getActivity(), GPPHActivity.class);
+//                intent.putExtra("data", "Hello from MyFragment");
+//                startActivity(intent);
+//            }
+//        });
 
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
         slideModels.add(new SlideModel(R.drawable.img1, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.img1, ScaleTypes.FIT));
-        slideModels.add(new SlideModel(R.drawable.img1, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.img2, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.img3, ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.img4, ScaleTypes.FIT));
 
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 

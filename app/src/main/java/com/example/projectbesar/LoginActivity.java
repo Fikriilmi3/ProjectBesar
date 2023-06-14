@@ -10,10 +10,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.example.projectbesar.utils.SessionHandler;
-import com.example.projectbesar.utils.VolleySingleton;
+import com.android.volley.toolbox.Volley;
+import com.example.projectbesar.utils.Preferences;
+import com.example.projectbesar.utils.ServerApi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,10 +29,8 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     private ProgressDialog pDialog;
-    private TextView username;
-    private TextView password;
-
-    private SessionHandler sessionHandler;
+    private TextView username, password, tvreg;
+    private Button btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +38,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setTitle("Login");
 
-        sessionHandler = new SessionHandler(this);
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
-
-        TextView tvreg = findViewById(R.id.tvreg);
-        Button btn_login = findViewById(R.id.btn_login);
+        username  = findViewById(R.id.username);
+        password  = findViewById(R.id.password);
+        tvreg     = findViewById(R.id.tvreg);
+        btn_login = findViewById(R.id.btn_login);
+        pDialog   = new ProgressDialog(LoginActivity.this);
 
         tvreg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,56 +55,71 @@ public class LoginActivity extends AppCompatActivity {
 
         btn_login.setOnClickListener(view -> {
             if (validateInputs()) {
-                postData();
+                Login();
             }
         });
     }
 
-    private void displayLoader() {
-        pDialog = new ProgressDialog(LoginActivity.this);
+    private void Login() {
         pDialog.setMessage("Sedang diproses...");
-        pDialog.setIndeterminate(false);
         pDialog.setCancelable(false);
         pDialog.show();
-    }
 
-    private void postData() {
-        displayLoader();
-        StringRequest smr = new StringRequest(Request.Method.POST, "http://192.168.43.41/web-services/Api/login",
-                response -> {
-                    pDialog.dismiss();
-                    try {
-                        JSONObject jObj = new JSONObject(response);
-                        if (jObj.getString("status").equals("true")) {
-                            JSONObject result = jObj.getJSONObject("data");
-                            sessionHandler.loginUser(result.getString("id"), result.getString("username"), result.getString("nama_anak"), result.getString("jenis_kelamin"), result.getString("tempat_lahir"), result.getString("tgl_lahir"), result.getString("nama_ibu"), result.getString("telepone"));
-                            Intent intent = new Intent(LoginActivity.this, UbahAkunActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                            finish();
-                        } else {
-                            Toast.makeText(getApplicationContext(), jObj.getString("message"), Toast.LENGTH_SHORT).show();
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest updateReq = new StringRequest(Request.Method.POST, ServerApi.URL_LOGIN,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        pDialog.cancel();
+                        try {
+                            JSONObject res = new JSONObject(response);
+                            if (res.getBoolean("status_login")){
+                                Preferences.setKeyId(getBaseContext(), res.getString("id"));
+                                Preferences.setKeyUsername(getBaseContext(), res.getString("username"));
+                                Preferences.setKeyNamaAnak(getBaseContext(), res.getString("nama_anak"));
+                                Preferences.setKeyJenisKelamin(getBaseContext(), res.getString("jenis_kelamin"));
+                                Preferences.setKeyTglLahir(getBaseContext(), res.getString("tgl_lahir"));
+                                Preferences.setKeyTempatLahir(getBaseContext(), res.getString("tempat_lahir"));
+                                Preferences.setKeyNamaIbu(getBaseContext(), res.getString("nama_ibu"));
+                                Preferences.setKeyTelepone(getBaseContext(), res.getString("telepone"));
+                                Preferences.setKeyPassword(getBaseContext(), res.getString("password"));
+
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                            }else {
+                                androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(LoginActivity.this);
+                                builder.setMessage("Username atau Password Anda salah!")
+                                        .setNegativeButton("Retry", null).create().show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(LoginActivity.this);
+                            builder.setMessage("Terdapat Kesalahan Jaringan")
+                                    .setNegativeButton("Retry", null).create().show();
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }, error -> {
-            pDialog.dismiss();
-            Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
-        }) {
-
-
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        pDialog.cancel();
+                        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(LoginActivity.this);
+                        builder.setMessage("Terdapat Kesalahan Jaringan")
+                                .setNegativeButton("Retry", null).create().show();
+                    }
+                }){
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("username", username.getText().toString());
-                params.put("password", password.getText().toString());
-                return params;
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> map = new HashMap<>();
+                map.put("username",username.getText().toString());
+                map.put("password",password.getText().toString());
+
+                return map;
             }
         };
 
-        VolleySingleton.getInstance(this).addToRequestQueue(smr);
+        queue.add(updateReq);
     }
 
     private boolean validateInputs() {

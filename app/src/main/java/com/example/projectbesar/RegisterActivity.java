@@ -3,8 +3,10 @@ package com.example.projectbesar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +17,14 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.projectbesar.utils.ServerApi;
 import com.example.projectbesar.utils.VolleySingleton;
 
 import org.json.JSONException;
@@ -40,6 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView nama_ibu;
     private TextView telepone;
     private TextView password;
+    private TextView tvlogin;
+    private Button btn_register;
 
     //@SuppressLint("MissingInflatedId")
     @Override
@@ -48,18 +58,18 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         setTitle("Register");
 
-        username = findViewById(R.id.username);
-        nama_anak = findViewById(R.id.nama_anak);
+        username      = findViewById(R.id.username);
+        nama_anak     = findViewById(R.id.nama_anak);
         jenis_kelamin = findViewById(R.id.jenis_kelamin);
-        tempat_lahir = findViewById(R.id.tempat_lahir);
-        tgl_lahir = findViewById(R.id.tgl_lahir);
-        btnDate = findViewById(R.id.btnDate);
-        nama_ibu = findViewById(R.id.nama_ibu);
-        telepone = findViewById(R.id.telepone);
-        password = findViewById(R.id.password);
-
-        TextView tvlogin = findViewById(R.id.tvlogin) ;
-        Button btn_register = findViewById(R.id.btn_register);
+        tempat_lahir  = findViewById(R.id.tempat_lahir);
+        tgl_lahir     = findViewById(R.id.tgl_lahir);
+        btnDate       = findViewById(R.id.btnDate);
+        nama_ibu      = findViewById(R.id.nama_ibu);
+        telepone      = findViewById(R.id.telepone);
+        password      = findViewById(R.id.password);
+        tvlogin       = findViewById(R.id.tvlogin) ;
+        btn_register  = findViewById(R.id.btn_register);
+        pDialog       = new ProgressDialog(RegisterActivity.this);
 
         tgl_lahir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,57 +128,58 @@ public class RegisterActivity extends AppCompatActivity {
 
         btn_register.setOnClickListener(view -> {
             if (validateInputs()) {
-                postData();
+                Register();
             }
         });
     }
 
-    private void displayLoader() {
-        pDialog = new ProgressDialog(RegisterActivity.this);
-        pDialog.setMessage("Sedang diproses...");
-        pDialog.setIndeterminate(false);
+    private void Register() {
+        pDialog.setMessage("Menyimpan Data");
         pDialog.setCancelable(false);
         pDialog.show();
-    }
 
-    private void postData() {
-        displayLoader();
-        StringRequest smr = new StringRequest(Request.Method.POST, "http://192.168.43.41/web-services/Api/register",
-                response -> {
-                    pDialog.dismiss();
-                    try {
-                        JSONObject jObj = new JSONObject(response);
-                        String message = jObj.getString("message");
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                        if (jObj.getString("status").equals("true")) {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest updateReq = new StringRequest(Request.Method.POST, ServerApi.URL_REGISTRASI,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        pDialog.cancel();
+                        try {
+                            JSONObject res = new JSONObject(response);
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                             finish();
+                            finish();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }, error -> {
-            pDialog.dismiss();
-            Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
-        }) {
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        pDialog.cancel();
+                        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(RegisterActivity.this);
+                        builder.setMessage("Terjadi kesalahan jaringan")
+                                .setNegativeButton("Retry", null).create().show();
+                    }
+                }){
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("username", username.getText().toString());
-                params.put("nama_anak", nama_anak.getText().toString());
-                params.put("jenis_kelamin", jenis_kelamin.getText().toString());
-                params.put("tempat_lahir", tempat_lahir.getText().toString());
-                params.put("tgl_lahir", tgl_lahir.getText().toString());
-                params.put("nama_ibu", nama_ibu.getText().toString());
-                params.put("telepone",telepone.getText().toString());
-                params.put("password", password.getText().toString());
-                return params;
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> map = new HashMap<>();
+                map.put("username", username.getText().toString());
+                map.put("nama_anak", nama_anak.getText().toString());
+                map.put("jenis_kelamin", jenis_kelamin.getText().toString());
+                map.put("tempat_lahir", tempat_lahir.getText().toString());
+                map.put("tgl_lahir", tgl_lahir.getText().toString());
+                map.put("nama_ibu", nama_ibu.getText().toString());
+                map.put("telepone",telepone.getText().toString());
+                map.put("password", password.getText().toString());
+                System.out.println(map);
+                return map;
             }
         };
-
-        VolleySingleton.getInstance(this).addToRequestQueue(smr);
+        queue.add(updateReq);
     }
 
     private boolean validateInputs() {

@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.toolbox.StringRequest;
 import com.example.projectbesar.models.User;
+import com.example.projectbesar.utils.Preferences;
 import com.example.projectbesar.utils.SessionHandler;
 import com.example.projectbesar.utils.VolleySingleton;
 
@@ -28,9 +29,6 @@ import org.json.JSONObject;
 
 public class ProfileFragment extends Fragment {
 
-    private static final String PREF_NAME = "UserSession";
-    private SharedPreferences sharedPreferences;
-    private SessionHandler sessionHandler;
     private ProgressDialog pDialog;
     private User user;
     private TextView username, tgl_lahir, nama_ibu;
@@ -52,9 +50,9 @@ public class ProfileFragment extends Fragment {
         tgl_lahir = view.findViewById(R.id.tgl_lahir);
         nama_ibu = view.findViewById(R.id.nama_ibu);
 
-        sessionHandler = new SessionHandler(getActivity());
-        user = sessionHandler.getUserDetails();
-        sharedPreferences = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        username.setText(Preferences.getKeyUsername(getActivity()));
+        tgl_lahir.setText(Preferences.getKeyTglLahir(getActivity()));
+        nama_ibu.setText(Preferences.getKeyNamaIbu(getActivity()));
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +88,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        getData();
+//        getData();
         return view;
     }
 
@@ -102,22 +100,15 @@ public class ProfileFragment extends Fragment {
         dialog.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                SessionOut();
+                Preferences.clearLoggedInUser(getActivity());
+                Intent intent = new Intent(requireContext(), LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                requireActivity().finish();
+                startActivity(intent);
             }
         });
         dialog.setCancelable(false);
         dialog.show();
-    }
-
-    private void SessionOut() {
-        SharedPreferences sharedpreferences = requireContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.clear();
-        editor.apply();
-        Intent intent = new Intent(requireContext(), LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        requireActivity().finish();
-        startActivity(intent);
     }
 
     private void displayLoader() {
@@ -128,32 +119,32 @@ public class ProfileFragment extends Fragment {
         pDialog.show();
     }
 
-    private void getData() {
-        displayLoader();
-        StringRequest smr = new StringRequest(Request.Method.GET, "http://192.168.43.41/web-services/Api/data?id=" + user.getIdPengguna(),
-                response -> {
-                    pDialog.dismiss();
-                    try {
-                        JSONObject jObj = new JSONObject(response);
-                        if (jObj.getString("status").equals("true")) {
-                            JSONObject result = jObj.getJSONObject("data");
-                            username.setText(result.getString("username"));
-                            tgl_lahir.setText(result.getString("tgl_lahir"));
-                            nama_ibu.setText(result.getString("nama_ibu"));
-
-                        } else {
-                            Toast.makeText(getActivity(), jObj.getString("message"), Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }, error -> {
-            pDialog.dismiss();
-            Toast.makeText(getActivity(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
-        });
-
-        smr.setShouldCache(false);
-        VolleySingleton.getInstance(getActivity()).addToRequestQueue(smr);
-    }
+//    private void getData() {
+//        displayLoader();
+//        StringRequest smr = new StringRequest(Request.Method.GET, "http://192.168.43.41/web-services/Api/data?id=" + user.getIdPengguna(),
+//                response -> {
+//                    pDialog.dismiss();
+//                    try {
+//                        JSONObject jObj = new JSONObject(response);
+//                        if (jObj.getString("status").equals("true")) {
+//                            JSONObject result = jObj.getJSONObject("data");
+//                            username.setText(result.getString("username"));
+//                            tgl_lahir.setText(result.getString("tgl_lahir"));
+//                            nama_ibu.setText(result.getString("nama_ibu"));
+//
+//                        } else {
+//                            Toast.makeText(getActivity(), jObj.getString("message"), Toast.LENGTH_SHORT).show();
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+//                    }
+//                }, error -> {
+//            pDialog.dismiss();
+//            Toast.makeText(getActivity(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+//        });
+//
+//        smr.setShouldCache(false);
+//        VolleySingleton.getInstance(getActivity()).addToRequestQueue(smr);
+//    }
 }

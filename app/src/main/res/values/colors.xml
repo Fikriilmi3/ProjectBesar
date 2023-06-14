@@ -7,9 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="biru">#476FEA </color>
+    <color name="biru">#6D77FB </color>
     <color name="grey">#808080</color>
     <color name="grey_90">#353535</color>
     <color name="birumuda">#A6BDFE</color>
     <color name="merah">#e63946</color>
+    <color name="hijau">#0ead69</color>
 </resources>

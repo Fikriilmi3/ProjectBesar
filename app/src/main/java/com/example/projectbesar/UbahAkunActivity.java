@@ -2,7 +2,9 @@ package com.example.projectbesar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,10 +13,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.projectbesar.perkembangan.KPSPActivity;
 import com.example.projectbesar.perkembangan.PerkembanganActivity;
+import com.example.projectbesar.utils.Preferences;
+import com.example.projectbesar.utils.ServerApi;
 import com.example.projectbesar.utils.VolleySingleton;
 
 import org.json.JSONException;
@@ -27,7 +36,6 @@ public class UbahAkunActivity extends AppCompatActivity {
 
     private ProgressDialog pDialog;
     private EditText username, nama_anak, jenis_kelamin, tempat_lahir, tgl_lahir, nama_ibu, telepone, password, id_pengguna;
-    String id;
 
 
     @Override
@@ -35,26 +43,31 @@ public class UbahAkunActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ubah_akun);
 
-        username = findViewById(R.id.username);
-        nama_anak = findViewById(R.id.nama_anak);
+        id_pengguna   = findViewById(R.id.id_pengguna);
+        username      = findViewById(R.id.username);
+        nama_anak     = findViewById(R.id.nama_anak);
         jenis_kelamin = findViewById(R.id.jenis_kelamin);
-        tempat_lahir = findViewById(R.id.tempat_lahir);
-        tgl_lahir = findViewById(R.id.tgl_lahir);
-        nama_ibu = findViewById(R.id.tgl_lahir);
-        telepone = findViewById(R.id.telepone);
-        //password = findViewById(R.id.password);
+        tempat_lahir  = findViewById(R.id.tempat_lahir);
+        tgl_lahir     = findViewById(R.id.tgl_lahir);
+        nama_ibu      = findViewById(R.id.nama_ibu);
+        telepone      = findViewById(R.id.telepone);
+        password      = findViewById(R.id.password);
+        pDialog       = new ProgressDialog(UbahAkunActivity.this);
 
-        id_pengguna = findViewById(R.id.id_pengguna);
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            id = extras.getString("ID");
-        }
+        id_pengguna.setText(Preferences.getKeyId(UbahAkunActivity.this));
+        username.setText(Preferences.getKeyUsername(UbahAkunActivity.this));
+        nama_anak.setText(Preferences.getKeyNamaAnak(UbahAkunActivity.this));
+        jenis_kelamin.setText(Preferences.getKeyJenisKelamin(UbahAkunActivity.this));
+        tempat_lahir.setText(Preferences.getKeyTempatLahir(UbahAkunActivity.this));
+        tgl_lahir.setText(Preferences.getKeyTglLahir(UbahAkunActivity.this));
+        nama_ibu.setText(Preferences.getKeyNamaIbu(UbahAkunActivity.this));
+        telepone.setText(Preferences.getKeyTelepone(UbahAkunActivity.this));
 
         ImageView backButton= findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(UbahAkunActivity.this, ProfileFragment.class);
+                Intent i = new Intent(UbahAkunActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
@@ -63,54 +76,9 @@ public class UbahAkunActivity extends AppCompatActivity {
         Button btn_simpan = findViewById(R.id.btn_simpan);
         btn_simpan.setOnClickListener(view -> {
             if (validateInputs()) {
-                postData();
+                UpdateAkun();
             }
         });
-
-        getData();
-    }
-
-    private void getData() {
-        displayLoader();
-        StringRequest smr = new StringRequest(Request.Method.GET, "http://192.168.43.41/web-services/Api/data?id=" + id,
-                response -> {
-                    pDialog.dismiss();
-                    try {
-                        JSONObject jObj = new JSONObject(response);
-                        if (jObj.getString("status").equals("true")) {
-                            JSONObject result = jObj.getJSONObject("data");
-                            id_pengguna.setText(result.getString("id"));
-                            username.setText(result.getString("username"));
-                            nama_anak.setText(result.getString("nama_anak"));
-                            jenis_kelamin.setText(result.getString("jenis_kelamin"));
-                            tempat_lahir.setText(result.getString("tempat_lahir"));
-                            tgl_lahir.setText(result.getString("tgl_lahir"));
-                            nama_ibu.setText(result.getString("nama_ibu"));
-                            telepone.setText(result.getString("telepone"));
-                            //password.setText(result.getString("password"));
-
-                        } else {
-                            Toast.makeText(getApplicationContext(), jObj.getString("message"), Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }, error -> {
-            pDialog.dismiss();
-            Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
-        });
-
-        smr.setShouldCache(false);
-        VolleySingleton.getInstance(this).addToRequestQueue(smr);
-    }
-
-    private void displayLoader() {
-        pDialog = new ProgressDialog(UbahAkunActivity.this);
-        pDialog.setMessage("Sedang diproses...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();
     }
 
     private boolean validateInputs() {
@@ -127,45 +95,67 @@ public class UbahAkunActivity extends AppCompatActivity {
         return true;
     }
 
-    private void postData() {
-        displayLoader();
-        StringRequest smr = new StringRequest(Request.Method.POST, "http://192.168.43.41/web-services/Api/update",
-                response -> {
-                    pDialog.dismiss();
-                    try {
-                        JSONObject jObj = new JSONObject(response);
-                        String message = jObj.getString("message");
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                        if (jObj.getString("status").equals("true")) {
-                            Intent intent = new Intent(UbahAkunActivity.this, ProfileFragment.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                            finish();
+    private void UpdateAkun() {
+        pDialog.setMessage("Menyimpan Data");
+        pDialog.setCancelable(false);
+        pDialog.show();
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest updateReq = new StringRequest(Request.Method.POST, ServerApi.URL_EDIT_AKUN,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        pDialog.cancel();
+                        try {
+                            JSONObject res = new JSONObject(response);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(UbahAkunActivity.this);
+                            builder.setTitle("Update Profile").
+                                    setMessage("Profile anda berhasil diupdate");
+                            builder.setPositiveButton("Login Ulang",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            Preferences.clearLoggedInUser(UbahAkunActivity.this);
+                                            Intent intent = new Intent(UbahAkunActivity.this, LoginActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    });
+                            AlertDialog alert11 = builder.create();
+                            alert11.show();
+
+                        } catch (JSONException e) {
+                            androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(UbahAkunActivity.this);
+                            builder.setMessage("UTerjadi kesalahan jaringan")
+                                    .setNegativeButton("Retry", null).create().show();
+                            e.printStackTrace();
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }, error -> {
-            pDialog.dismiss();
-            Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
-        }) {
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        pDialog.cancel();
+                        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(UbahAkunActivity.this);
+                        builder.setMessage("Terjadi kesalahan jaringan")
+                                .setNegativeButton("Retry", null).create().show();
+                    }
+                }){
             @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("id", id_pengguna.getText().toString());
-                params.put("username", username.getText().toString());
-                params.put("nama_anak", nama_anak.getText().toString());
-                params.put("jenis_kelamin", jenis_kelamin.getText().toString());
-                params.put("tempat_lahir", tempat_lahir.getText().toString());
-                params.put("tgl_lahir", tgl_lahir.getText().toString());
-                params.put("nama-ibu", nama_ibu.getText().toString());
-                params.put("telepone", telepone.getText().toString());
- //               params.put("password", password.getText().toString());
-                return params;
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> map = new HashMap<>();
+                map.put("id", id_pengguna.getText().toString());
+                map.put("username", username.getText().toString());
+                map.put("nama_anak", nama_anak.getText().toString());
+                map.put("jenis_kelamin", jenis_kelamin.getText().toString());
+                map.put("tempat_lahir", tempat_lahir.getText().toString());
+                map.put("tgl_lahir", tgl_lahir.getText().toString());
+                map.put("nama_ibu", nama_ibu.getText().toString());
+                map.put("telepone",telepone.getText().toString());
+                map.put("password", password.getText().toString());
+                System.out.println(map);
+                return map;
             }
         };
-
-        VolleySingleton.getInstance(this).addToRequestQueue(smr);
+        queue.add(updateReq);
     }
+
 }
