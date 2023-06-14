@@ -13,21 +13,61 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectBesar"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".KPSP24"
+            android:name=".tentang.LainActivity"
             android:exported="false" />
         <activity
-            android:name=".EdukasiActivity"
+            android:name=".tentang.KontakActivity"
             android:exported="false" />
         <activity
-            android:name=".cancel.ProfilAnakActivity"
+            android:name=".tentang.PrivasiActivity"
             android:exported="false" />
         <activity
-            android:name=".cancel.TambahAnggotaActivity"
+            android:name=".RiwayatKeseluruhan"
             android:exported="false" />
         <activity
-            android:name=".cancel.ProfilTertautActivity"
+            android:name=".RiwayatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mental.gpph.GPPH"
+            android:exported="false" />
+        <activity
+            android:name=".mental.chat.CHATPENG"
+            android:exported="false" />
+        <activity
+            android:name=".mental.chat.CHATALO"
+            android:exported="false" />
+        <activity
+            android:name=".mental.kmme.KMME"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.tdl.TDL"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.tdd.TDD3"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.tdd.TDD2"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.tdd.TDD1"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.kpsp.KPSP48"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.kpsp.KPSP42"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.kpsp.KPSP36"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.kpsp.KPSP30"
+            android:exported="false" />
+        <activity
+            android:name=".perkembangan.kpsp.KPSP24"
             android:exported="false" />
         <activity
             android:name=".TentangActivity"
@@ -36,22 +76,22 @@
             android:name=".UbahAkunActivity"
             android:exported="false" />
         <activity
-            android:name=".mental.GPPHActivity"
+            android:name=".mental.gpph.GPPHActivity"
             android:exported="false" />
         <activity
-            android:name=".mental.CHATActivity"
+            android:name=".mental.chat.CHATActivity"
             android:exported="false" />
         <activity
-            android:name=".mental.KMMEActivity"
+            android:name=".mental.kmme.KMMEActivity"
             android:exported="false" />
         <activity
-            android:name=".perkembangan.TDLActivity"
+            android:name=".perkembangan.tdl.TDLActivity"
             android:exported="false" />
         <activity
-            android:name=".perkembangan.TDDActivity"
+            android:name=".perkembangan.tdd.TDDActivity"
             android:exported="false" />
         <activity
-            android:name=".perkembangan.KPSPActivity"
+            android:name=".perkembangan.kpsp.KPSPActivity"
             android:exported="false" />
         <activity
             android:name=".mental.MentalActivity"
@@ -83,7 +123,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

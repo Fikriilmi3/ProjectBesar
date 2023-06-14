@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -20,14 +19,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.projectbesar.perkembangan.KPSPActivity;
-import com.example.projectbesar.perkembangan.PerkembanganActivity;
 import com.example.projectbesar.utils.Preferences;
 import com.example.projectbesar.utils.ServerApi;
-import com.example.projectbesar.utils.VolleySingleton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -105,29 +98,20 @@ public class UbahAkunActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         pDialog.cancel();
-                        try {
-                            JSONObject res = new JSONObject(response);
-                            AlertDialog.Builder builder = new AlertDialog.Builder(UbahAkunActivity.this);
-                            builder.setTitle("Update Profile").
-                                    setMessage("Profile anda berhasil diupdate");
-                            builder.setPositiveButton("Login Ulang",
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int id) {
-                                            Preferences.clearLoggedInUser(UbahAkunActivity.this);
-                                            Intent intent = new Intent(UbahAkunActivity.this, LoginActivity.class);
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                    });
-                            AlertDialog alert11 = builder.create();
-                            alert11.show();
-
-                        } catch (JSONException e) {
-                            androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(UbahAkunActivity.this);
-                            builder.setMessage("UTerjadi kesalahan jaringan")
-                                    .setNegativeButton("Retry", null).create().show();
-                            e.printStackTrace();
-                        }
+                        AlertDialog.Builder builder = new AlertDialog.Builder(UbahAkunActivity.this);
+                        builder.setTitle("Update Profile").
+                                setMessage("Profile anda berhasil diupdate");
+                        builder.setPositiveButton("Login Ulang",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        Preferences.clearLoggedInUser(UbahAkunActivity.this);
+                                        Intent intent = new Intent(UbahAkunActivity.this, LoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                });
+                        AlertDialog alert11 = builder.create();
+                        alert11.show();
                     }
                 },
                 new Response.ErrorListener() {

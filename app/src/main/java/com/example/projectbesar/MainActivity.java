@@ -10,7 +10,7 @@ import android.os.Bundle;
 import com.example.projectbesar.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    
+
     ActivityMainBinding binding;
 
     @Override
@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        
+
         replaceFragment(new HomeFragment());
         binding.bottomNavigationView.setBackground(null);
-        
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:

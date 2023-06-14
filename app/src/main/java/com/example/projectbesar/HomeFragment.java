@@ -14,14 +14,14 @@ import android.view.ViewGroup;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.projectbesar.mental.CHATActivity;
-import com.example.projectbesar.mental.GPPHActivity;
-import com.example.projectbesar.mental.KMMEActivity;
+import com.example.projectbesar.mental.chat.CHATActivity;
+import com.example.projectbesar.mental.gpph.GPPHActivity;
+import com.example.projectbesar.mental.kmme.KMMEActivity;
 import com.example.projectbesar.mental.MentalActivity;
-import com.example.projectbesar.perkembangan.KPSPActivity;
+import com.example.projectbesar.perkembangan.kpsp.KPSPActivity;
 import com.example.projectbesar.perkembangan.PerkembanganActivity;
-import com.example.projectbesar.perkembangan.TDDActivity;
-import com.example.projectbesar.perkembangan.TDLActivity;
+import com.example.projectbesar.perkembangan.tdd.TDDActivity;
+import com.example.projectbesar.perkembangan.tdl.TDLActivity;
 
 import java.util.ArrayList;
 
@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
-
+//
 //        btn_tdd.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
-
+//
 //        btn_tdl.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -90,7 +90,7 @@ public class HomeFragment extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
-
+//
 //        btn_kmme.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
-
+//
 //        btn_chat.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -108,7 +108,7 @@ public class HomeFragment extends Fragment {
 //                startActivity(intent);
 //            }
 //        });
-
+//
 //        btn_gpph.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -124,7 +124,6 @@ public class HomeFragment extends Fragment {
         slideModels.add(new SlideModel(R.drawable.img2, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.img3, ScaleTypes.FIT));
         slideModels.add(new SlideModel(R.drawable.img4, ScaleTypes.FIT));
-
         imageSlider.setImageList(slideModels, ScaleTypes.FIT);
 
         return view;

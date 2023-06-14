@@ -2,7 +2,6 @@ package com.example.projectbesar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -12,10 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -25,10 +22,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.projectbesar.utils.ServerApi;
-import com.example.projectbesar.utils.VolleySingleton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -133,37 +126,69 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void Register() {
+    private void Register(){
         pDialog.setMessage("Menyimpan Data");
         pDialog.setCancelable(false);
         pDialog.show();
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest updateReq = new StringRequest(Request.Method.POST, ServerApi.URL_REGISTRASI,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        pDialog.cancel();
-                        try {
-                            JSONObject res = new JSONObject(response);
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                            finish();
-                            finish();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        pDialog.cancel();
-                        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(RegisterActivity.this);
-                        builder.setMessage("Terjadi kesalahan jaringan")
-                                .setNegativeButton("Retry", null).create().show();
-                    }
-                }){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ServerApi.URL_REGISTRASI, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                pDialog.cancel();
+//                try {
+//                    JSONObject jsonObject = new JSONObject(response);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                builder.setTitle("Registrasi Berhasil").
+                        setMessage("Registrasi akun anda telah berhasil");
+                builder.setPositiveButton("Login",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                RegisterActivity.this.startActivity(intent);
+                                finish();
+                            }
+                        });
+                AlertDialog alert11 = builder.create();
+                alert11.show();
+
+//                }
+//                catch (JSONException e) {
+//                    e.printStackTrace();
+//
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+//                    builder.setTitle("Registrasi Gagal").
+//                            setMessage("Terdapat kesalahan saat melakukan registrasi");
+//                    builder.setPositiveButton("Coba Lagi",
+//                            new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    dialog.cancel();
+//                                }
+//                            });
+//                    AlertDialog alert11 = builder.create();
+//                    alert11.show();
+//
+//                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                pDialog.cancel();
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+                builder.setTitle("Kesalahan Jaringan").
+                        setMessage("Terdapat kesalahan jaringan saat memuat data");
+                builder.setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert11 = builder.create();
+                alert11.show();
+
+            }
+        })
+        {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> map = new HashMap<>();
@@ -179,8 +204,67 @@ public class RegisterActivity extends AppCompatActivity {
                 return map;
             }
         };
-        queue.add(updateReq);
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
+//    private void Register() {
+//        pDialog.setMessage("Menyimpan Data");
+//        pDialog.setCancelable(false);
+//        pDialog.show();
+//
+//        RequestQueue queue = Volley.newRequestQueue(this);
+//        StringRequest updateReq = new StringRequest(Request.Method.POST, ServerApi.URL_REGISTRASI,
+//                new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        pDialog.cancel();
+//                        try {
+//                            JSONObject res = new JSONObject(response);
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+//                            builder.setTitle("Registrasi").
+//                                    setMessage("Registrasi Berhasil");
+//                            builder.setPositiveButton("LOGIN",
+//                                    new DialogInterface.OnClickListener() {
+//                                        public void onClick(DialogInterface dialog, int id) {
+//                                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+//                                            startActivity(intent);
+//                                            finish();
+//                                        }
+//                                    });
+//                            AlertDialog alert11 = builder.create();
+//                            alert11.show();
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        pDialog.cancel();
+//                        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(RegisterActivity.this);
+//                        builder.setMessage("Terjadi kesalahan jaringan")
+//                                .setNegativeButton("Retry", null).create().show();
+//                    }
+//                }){
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String,String> map = new HashMap<>();
+//                map.put("username", username.getText().toString());
+//                map.put("nama_anak", nama_anak.getText().toString());
+//                map.put("jenis_kelamin", jenis_kelamin.getText().toString());
+//                map.put("tempat_lahir", tempat_lahir.getText().toString());
+//                map.put("tgl_lahir", tgl_lahir.getText().toString());
+//                map.put("nama_ibu", nama_ibu.getText().toString());
+//                map.put("telepone",telepone.getText().toString());
+//                map.put("password", password.getText().toString());
+//                System.out.println(map);
+//                return map;
+//            }
+//        };
+//        queue.add(updateReq);
+//    }
 
     private boolean validateInputs() {
         if (username.getText().toString().equals("")) {
