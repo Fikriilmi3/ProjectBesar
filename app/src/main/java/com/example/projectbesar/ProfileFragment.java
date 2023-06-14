@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,8 @@ import org.json.JSONObject;
 public class ProfileFragment extends Fragment {
 
     private ProgressDialog pDialog;
-    private User user;
+    LinearLayout riwayat, tentang, keluar;
+    ImageView edit;
     private TextView username, tgl_lahir, nama_ibu;
     private View view;
 
@@ -41,10 +43,10 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         getActivity().setTitle("Data");
 
-        ImageView edit = view.findViewById(R.id.edit);
-        ImageView edukasi= view.findViewById(R.id.edukasi);
-        ImageView tentang = view.findViewById(R.id.tentang);
-        ImageView keluar = view.findViewById(R.id.keluar);
+        edit    = view.findViewById(R.id.edit);
+        riwayat = view.findViewById(R.id.lytriwayat);
+        tentang = view.findViewById(R.id.lyttentang);
+        keluar  = view.findViewById(R.id.lytkeluar);
 
         username = view.findViewById(R.id.username);
         tgl_lahir = view.findViewById(R.id.tgl_lahir);
@@ -63,10 +65,10 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        edukasi.setOnClickListener(new View.OnClickListener() {
+        riwayat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), EdukasiActivity.class);
+                Intent intent = new Intent(getActivity(), RiwayatActivity.class);
                 intent.putExtra("data", "Hello from MyFragment");
                 startActivity(intent);
             }
@@ -88,7 +90,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-//        getData();
         return view;
     }
 
@@ -101,7 +102,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Preferences.clearLoggedInUser(getActivity());
-                Intent intent = new Intent(requireContext(), LoginActivity.class);
+                Intent intent = new Intent(requireContext(), GetStarted.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 requireActivity().finish();
                 startActivity(intent);
@@ -119,32 +120,4 @@ public class ProfileFragment extends Fragment {
         pDialog.show();
     }
 
-//    private void getData() {
-//        displayLoader();
-//        StringRequest smr = new StringRequest(Request.Method.GET, "http://192.168.43.41/web-services/Api/data?id=" + user.getIdPengguna(),
-//                response -> {
-//                    pDialog.dismiss();
-//                    try {
-//                        JSONObject jObj = new JSONObject(response);
-//                        if (jObj.getString("status").equals("true")) {
-//                            JSONObject result = jObj.getJSONObject("data");
-//                            username.setText(result.getString("username"));
-//                            tgl_lahir.setText(result.getString("tgl_lahir"));
-//                            nama_ibu.setText(result.getString("nama_ibu"));
-//
-//                        } else {
-//                            Toast.makeText(getActivity(), jObj.getString("message"), Toast.LENGTH_SHORT).show();
-//                        }
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                        Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-//                    }
-//                }, error -> {
-//            pDialog.dismiss();
-//            Toast.makeText(getActivity(), "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
-//        });
-//
-//        smr.setShouldCache(false);
-//        VolleySingleton.getInstance(getActivity()).addToRequestQueue(smr);
-//    }
 }

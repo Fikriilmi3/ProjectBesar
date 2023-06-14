@@ -1,19 +1,18 @@
 package com.example.projectbesar.perkembangan;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.projectbesar.LoginActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.example.projectbesar.MainActivity;
 import com.example.projectbesar.R;
-import com.example.projectbesar.RegisterActivity;
+import com.example.projectbesar.perkembangan.kpsp.KPSPActivity;
+import com.example.projectbesar.perkembangan.tdd.TDDActivity;
+import com.example.projectbesar.perkembangan.tdl.TDLActivity;
 
 public class PerkembanganActivity extends AppCompatActivity {
 

@@ -1,17 +1,18 @@
 package com.example.projectbesar.mental;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.example.projectbesar.MainActivity;
 import com.example.projectbesar.R;
-import com.example.projectbesar.perkembangan.KPSPActivity;
-import com.example.projectbesar.perkembangan.PerkembanganActivity;
+import com.example.projectbesar.mental.chat.CHATActivity;
+import com.example.projectbesar.mental.gpph.GPPHActivity;
+import com.example.projectbesar.mental.kmme.KMMEActivity;
 
 public class MentalActivity extends AppCompatActivity {
 

@@ -23,12 +23,12 @@ public class Splashscreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (Id != null) {
-                    Intent intent = new Intent(Splashscreen.this, MainActivity.class);
+                if (Id.isEmpty()) {
+                    Intent intent = new Intent(Splashscreen.this, GetStarted.class);
                     startActivity(intent);
                     finish();
                 } else {
-                    Intent intent = new Intent(Splashscreen.this, NavigationActivity.class);
+                    Intent intent = new Intent(Splashscreen.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 }

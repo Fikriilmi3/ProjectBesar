@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }else {
                                 androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(LoginActivity.this);
-                                builder.setMessage("Username atau Password Anda salah!")
+                                builder.setMessage("Username atau Password Anda salah!"+res)
                                         .setNegativeButton("Retry", null).create().show();
                             }
                         } catch (JSONException e) {
@@ -112,8 +112,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> map = new HashMap<>();
-                map.put("username",username.getText().toString());
-                map.put("password",password.getText().toString());
+                map.put("username",username.getText().toString().trim());
+                map.put("password",password.getText().toString().trim());
 
                 return map;
             }
@@ -134,5 +134,13 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Preferences.clearLoggedInUser(LoginActivity.this);
+        super.moveTaskToBack(true);
+        finish();
     }
 }
